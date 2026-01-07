@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { Code2, Database, Cpu, Globe, Server, Zap, ArrowRight } from 'lucide-react';
+import { Database, Cpu, Globe, Server, Zap, ArrowRight } from 'lucide-react';
 
 const ServicesHero = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [activeService, setActiveService] = useState(0);
-    const heroRef = useRef(null);
+    const heroRef = useRef<HTMLElement>(null);
 
     const services = [
         { icon: Globe, label: "Frontend Engineering", tech: "React / Next.js" },
@@ -31,7 +31,7 @@ const ServicesHero = () => {
         };
     }, []);
 
-    const fadeIn = (delay) =>
+    const fadeIn = (delay: string) =>
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${delay}`;
 
     return (
@@ -185,7 +185,14 @@ const ServicesHero = () => {
     );
 };
 
-const ServiceBadge = ({ title, value, isVisible, delay }) => {
+interface ServiceBadgeProps {
+    title: string;
+    value: string;
+    isVisible: boolean;
+    delay: string;
+}
+
+const ServiceBadge = ({ title, value, isVisible, delay }: ServiceBadgeProps) => {
     return (
         <div className={`border border-white/20 bg-neutral-950/50 p-4 hover:border-white/40 transition-all ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000 ease-out ${delay}`}>
             <div className="text-xs uppercase tracking-wider text-neutral-500 font-mono mb-1">{title}</div>
@@ -194,11 +201,20 @@ const ServiceBadge = ({ title, value, isVisible, delay }) => {
     );
 };
 
-const ServiceCard = ({ icon: Icon, label, tech, isActive, isVisible, delay }) => {
+interface ServiceCardProps {
+    icon: React.ElementType;
+    label: string;
+    tech: string;
+    isActive: boolean;
+    isVisible: boolean;
+    delay: string;
+}
+
+const ServiceCard = ({ icon: Icon, label, tech, isActive, isVisible, delay }: ServiceCardProps) => {
     return (
         <div className={`relative border group cursor-pointer transition-all duration-500 ${isActive
-                ? 'border-white bg-white/5'
-                : 'border-white/20 bg-neutral-900/50 hover:border-white/40'
+            ? 'border-white bg-white/5'
+            : 'border-white/20 bg-neutral-900/50 hover:border-white/40'
             } p-4 flex flex-col justify-between ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000 ease-out ${delay}`}>
 
             {isActive && (
@@ -228,7 +244,14 @@ const ServiceCard = ({ icon: Icon, label, tech, isActive, isVisible, delay }) =>
     );
 };
 
-const StatCard = ({ label, value, isVisible, delay }) => {
+interface StatCardProps {
+    label: string;
+    value: string;
+    isVisible: boolean;
+    delay: string;
+}
+
+const StatCard = ({ label, value, isVisible, delay }: StatCardProps) => {
     return (
         <div className={`border border-white/10 bg-neutral-950/50 backdrop-blur-xl p-3 text-center hover:border-white/30 transition-all ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000 ease-out ${delay}`}>
             <div className="text-2xl font-bold text-white mb-1">{value}</div>

@@ -4,7 +4,7 @@ import { cn } from '../../utils/utils';
 import { Cpu, Database, Globe, Terminal, Zap } from 'lucide-react';
 
 interface TechNodeProps {
-    icon: any;
+    icon: React.ElementType;
     title: string;
     subtitle: string;
     position: 'left' | 'center' | 'right';

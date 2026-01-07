@@ -18,7 +18,7 @@ const TECH_STACK = [
 
 export const TechStack = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
+    const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(

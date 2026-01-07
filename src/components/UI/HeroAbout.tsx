@@ -4,7 +4,7 @@ import { Building2, Users, Target, TrendingUp } from 'lucide-react';
 
 export const AboutHero = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const heroRef = useRef(null);
+    const heroRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -26,7 +26,7 @@ export const AboutHero = () => {
         };
     }, []);
 
-    const fadeIn = (delay) =>
+    const fadeIn = (delay: string) =>
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${delay}`;
 
     return (
@@ -137,7 +137,15 @@ export const AboutHero = () => {
     );
 };
 
-const StatCard = ({ icon: Icon, value, label, isVisible, delay }) => {
+interface StatCardProps {
+    icon: React.ElementType;
+    value: string;
+    label: string;
+    isVisible: boolean;
+    delay: string;
+}
+
+const StatCard = ({ icon: Icon, value, label, isVisible, delay }: StatCardProps) => {
     return (
         <div className={`relative group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000 ease-out ${delay}`}>
             <div className="relative border border-white/10 bg-neutral-950/50 backdrop-blur-xl p-6 hover:border-white/30 transition-all duration-300">
@@ -155,7 +163,14 @@ const StatCard = ({ icon: Icon, value, label, isVisible, delay }) => {
     );
 };
 
-const ValueCard = ({ title, description, isVisible, delay }) => {
+interface ValueCardProps {
+    title: string;
+    description: string;
+    isVisible: boolean;
+    delay: string;
+}
+
+const ValueCard = ({ title, description, isVisible, delay }: ValueCardProps) => {
     return (
         <div className={`relative group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000 ease-out ${delay}`}>
             <div className="border-l border-white/20 pl-6 group-hover:border-white/50 transition-all duration-300">

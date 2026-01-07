@@ -22,7 +22,7 @@ const ServicesDetails = () => {
         return () => clearTimeout(timer);
     }, [activeService]);
 
-    const ServiceIcon = currentService.icon;
+    const ServiceIcon = currentService.icon as React.ElementType;
 
     return (
         <section
@@ -72,7 +72,7 @@ const ServicesDetails = () => {
 
                             <nav className="space-y-2">
                                 {services.map((service) => {
-                                    const IconComponent = service.icon;
+                                    const IconComponent = service.icon as React.ElementType;
                                     const isActive = activeService === service.id;
 
                                     return (

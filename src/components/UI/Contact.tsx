@@ -5,7 +5,7 @@ import { Button } from '../common/Button';
 export const ContactUI = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const sectionRef = useRef(null);
+    const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -188,7 +188,14 @@ export const ContactUI = () => {
     );
 };
 
-const ContactMethod = ({ icon: Icon, title, value, href }: any) => (
+interface ContactMethodProps {
+    icon: React.ElementType;
+    title: string;
+    value: string;
+    href?: string;
+}
+
+const ContactMethod = ({ icon: Icon, title, value, href }: ContactMethodProps) => (
     <div className="flex gap-6 group">
         <div className="w-12 h-12 border border-white/10 bg-neutral-950 flex items-center justify-center flex-shrink-0 group-hover:border-white/30 transition-colors">
             <Icon size={20} className="text-neutral-500 group-hover:text-white transition-colors" />
@@ -206,7 +213,15 @@ const ContactMethod = ({ icon: Icon, title, value, href }: any) => (
     </div>
 );
 
-const InputField = ({ icon: Icon, label, placeholder, type, required }: any) => (
+interface InputFieldProps {
+    icon: React.ElementType;
+    label: string;
+    placeholder: string;
+    type: string;
+    required: boolean;
+}
+
+const InputField = ({ icon: Icon, label, placeholder, type, required }: InputFieldProps) => (
     <div className="space-y-2">
         <label className="text-[10px] uppercase tracking-widest text-neutral-500 font-mono ml-1 flex items-center gap-2">
             <Icon size={12} />

@@ -8,7 +8,7 @@ interface Service {
     description: string;
     image: string;
     imageAlt: string;
-    icon: any;
+    icon: React.ElementType;
     tags: string[];
 }
 

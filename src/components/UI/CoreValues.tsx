@@ -24,7 +24,7 @@ const VALUES = [
 
 export const CoreValues = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
+    const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(

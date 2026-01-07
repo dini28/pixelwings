@@ -4,7 +4,7 @@ import about from '../../assets/about.png'
 
 export const Story = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const storyRef = useRef(null);
+    const storyRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -26,7 +26,7 @@ export const Story = () => {
         };
     }, []);
 
-    const fadeIn = (delay) =>
+    const fadeIn = (delay: string) =>
         `transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${delay}`;
 
     return (
@@ -172,7 +172,12 @@ export const Story = () => {
     );
 };
 
-const TechBadge = ({ icon: Icon, label }) => {
+interface TechBadgeProps {
+    icon: React.ElementType;
+    label: string;
+}
+
+const TechBadge = ({ icon: Icon, label }: TechBadgeProps) => {
     return (
         <div className="border border-white/20 bg-neutral-950/50 p-4 hover:border-white/40 transition-all group">
             <Icon className="w-5 h-5 text-neutral-500 mb-2 group-hover:text-white transition-colors" />
