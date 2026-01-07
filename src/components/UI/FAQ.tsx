@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import {
     Accordion,
     AccordionContent,
@@ -7,14 +6,7 @@ import {
 } from "../common/Accordion";
 import SectionHeader from "../common/SectionHeader";
 
-
-interface FAQItem {
-    id: string;
-    question: string;
-    answer: string;
-}
-
-const faqs: FAQItem[] = [
+const faqs = [
     {
         id: "01",
         question: "How does the technical subscription model function?",
@@ -37,7 +29,7 @@ const faqs: FAQItem[] = [
     }
 ];
 
-const FAQ = () => {
+const FAQ: React.FC = () => {
     return (
         <section className="py-24 bg-black border-t border-white/5 overflow-hidden">
             <div className="container mx-auto px-6 max-w-4xl relative">

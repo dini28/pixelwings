@@ -1,5 +1,5 @@
-// Build Data Object
 import SectionHeader from "../common/SectionHeader";
+
 const expertises = [
     { name: "MERN Stack", code: "01 service" },
     { name: "AI/ML Logic", code: "02 service" },
@@ -10,7 +10,7 @@ const expertises = [
     { name: "Neural Networks", code: "07 service" }
 ];
 
-const Build = () => {
+const Build: React.FC = () => {
     const ExpertiseItem = ({ item }: { item: { name: string; code: string } }) => {
         return (
             <div className="shrink-0 flex items-center justify-center px-8 lg:px-16 h-32 group cursor-default">

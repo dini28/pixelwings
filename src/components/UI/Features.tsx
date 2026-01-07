@@ -1,20 +1,26 @@
 import {
-    GitBranch, Figma, Hash, Search, Bell, Settings,
-    Globe, Database, Shield, Code, Layers, Monitor
+    GitBranch, GitFork, Figma, Container,
+    Database, Shield, Code, Layers, Terminal, Slack,
+    Github, Gitlab, Network
 } from "lucide-react";
 import SectionHeader from "../common/SectionHeader";
 import { useState, useEffect, useRef } from "react";
 import { cn } from "../../utils/utils";
 
-interface CollaborationIcon {
-    icon: any;
-}
-
-const collaborationIcons: CollaborationIcon[] = [
-    { icon: GitBranch }, { icon: Globe }, { icon: Database },
-    { icon: Shield }, { icon: Code }, { icon: Layers },
-    { icon: Monitor }, { icon: Search }, { icon: Settings },
-    { icon: Hash }, { icon: Bell }, { icon: Figma }
+const collaborationIcons = [
+    { icon: GitBranch },
+    { icon: Github },
+    { icon: Gitlab },
+    { icon: GitFork },
+    { icon: Database },
+    { icon: Shield },
+    { icon: Code },
+    { icon: Layers },
+    { icon: Network },
+    { icon: Slack },
+    { icon: Terminal },
+    { icon: Container },
+    { icon: Figma }
 ];
 
 const scalabilityData = [40, 70, 45, 90, 65, 80, 50, 95];
@@ -143,7 +149,7 @@ const Features = () => {
                 </div>
 
                 <div className={cn(
-                    "border border-white/10 p-10 lg:p-14 hover:bg-neutral-900/20 transition-colors group",
+                    "border border-white/10 p-10 lg:p-14 group",
                     fadeIn("delay-700")
                 )}>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -172,7 +178,7 @@ const Features = () => {
                                                 key={i}
                                                 className="w-14 h-14 border border-white/10 bg-neutral-950 flex items-center justify-center grayscale opacity-30 hover:opacity-100 hover:border-white transition-all cursor-crosshair"
                                             >
-                                                <item.icon size={20} strokeWidth={1} />
+                                                <item.icon size={20} strokeWidth={2} />
                                             </div>
                                         ))}
                                     </div>

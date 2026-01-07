@@ -4,6 +4,8 @@
 
 PixelWings moves beyond traditional agency models by operating as your dedicated technical partner. We focus on code quality, architectural integrity, and business intelligence to deploy production-grade systems that scale.
 
+![PixelWings Preview](public/preview.png)
+
 ## ⚡ Tech Stack
 
 Built with a performance-first modern web stack:

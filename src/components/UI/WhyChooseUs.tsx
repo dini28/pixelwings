@@ -1,17 +1,9 @@
-/* eslint-disable react-refresh/only-export-components */
 import { Layers, Workflow, Zap } from "lucide-react";
 import SectionHeader from "../common/SectionHeader";
 import { useState, useEffect, useRef } from "react";
 import { cn } from "../../utils/utils";
 
-interface Reason {
-    icon: any;
-    label: string;
-    title: string;
-    description: string;
-}
-
-const reasons: Reason[] = [
+const reasons = [
     {
         icon: Layers,
         label: "01 // DESIGN",
@@ -32,7 +24,7 @@ const reasons: Reason[] = [
     }
 ];
 
-const WhyChooseUs = () => {
+const WhyChooseUs: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef<HTMLElement>(null);
 

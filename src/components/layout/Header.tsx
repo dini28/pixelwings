@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "../common/Button";
 import { cn } from "../../utils/utils";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [activePath] = useState(window.location.pathname);
+    const location = useLocation();
+    const activePath = location.pathname;
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -31,19 +33,19 @@ const Header = () => {
         >
             <div className="container mx-auto px-6">
                 <nav className="flex items-center justify-between">
-                    <a
-                        href="/"
+                    <Link
+                        to="/"
                         className="text-xl font-bold tracking-tighter text-white hover:opacity-70 transition-opacity"
                         style={{ fontFamily: 'Pixelify Sans, monospace' }}
                     >
                         PixelWings
-                    </a>
+                    </Link>
 
                     <div className="hidden md:flex items-center space-x-10">
                         {navItems.map(({ href, label }) => (
-                            <a
+                            <Link
                                 key={href}
-                                href={href}
+                                to={href}
                                 className={cn(
                                     "text-[11px] uppercase tracking-[0.2em] transition-colors duration-300",
                                     activePath === href
@@ -52,7 +54,7 @@ const Header = () => {
                                 )}
                             >
                                 {label}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
@@ -63,7 +65,7 @@ const Header = () => {
                             size="sm"
                             className="border-white/20 hover:border-white"
                         >
-                            <a href="/contact">Get in Touch</a>
+                            <Link to="/contact">Get in Touch</Link>
                         </Button>
                     </div>
 
@@ -85,19 +87,19 @@ const Header = () => {
             >
                 <div className="flex flex-col p-8 space-y-6">
                     {navItems.map(({ href, label }) => (
-                        <a
+                        <Link
                             key={href}
-                            href={href}
+                            to={href}
                             onClick={() => setIsMenuOpen(false)}
                             className="text-lg font-bold tracking-tight text-white border-b border-white/5 pb-2"
                         >
                             {label}
-                        </a>
+                        </Link>
                     ))}
                     <Button asChild className="w-full mt-4">
-                        <a href="/contact" onClick={() => setIsMenuOpen(false)}>
+                        <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
                             Contact us
-                        </a>
+                        </Link>
                     </Button>
                 </div>
             </div>

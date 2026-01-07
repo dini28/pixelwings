@@ -2,6 +2,7 @@ import { FontAwesomeIcon, type FontAwesomeIconProps } from "@fortawesome/react-f
 import { faXTwitter, faInstagram, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { ArrowUp } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 type SocialLink = {
     href: string;
@@ -60,21 +61,21 @@ const Footer = () => {
     };
 
     return (
-        <footer className="relative bg-black text-white overflow-hidden">
+        <footer className="relative bg-black text-white overflow-hidden border-t border-white">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent pointer-events-none" />
 
             <div className="relative container mx-auto px-6 py-16 md:py-24">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
 
                     <div className="md:col-span-4 space-y-6">
-                        <a href="/" className="inline-block group">
+                        <Link to="/" className="inline-block group">
                             <h2
                                 className="text-3xl font-bold tracking-tight hover:text-white/80 transition-colors"
                                 style={{ fontFamily: 'Pixelify Sans, monospace' }}
                             >
                                 PixelWings
                             </h2>
-                        </a>
+                        </Link>
 
                         <p className="text-white/60 text-sm leading-relaxed max-w-sm">
                             Crafting digital experiences with precision and creativity. We turn ideas into reality.
@@ -147,12 +148,12 @@ const Footer = () => {
                     <div className="flex flex-wrap items-center gap-4 md:gap-6">
                         <p>© {currentYear} PixelWings Solutions</p>
                         <div className="flex gap-4">
-                            <a href="/privacy" className="hover:text-white/70 transition-colors">
+                            <Link to="/privacy" className="hover:text-white/70 transition-colors">
                                 Privacy
-                            </a>
-                            <a href="/terms" className="hover:text-white/70 transition-colors">
+                            </Link>
+                            <Link to="/terms" className="hover:text-white/70 transition-colors">
                                 Terms
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -188,12 +189,12 @@ const SocialLink = ({ href, icon: Icon, label }: SocialLinkProps) => (
 );
 
 const FooterLink = ({ href, children }: FooterLinkProps) => (
-    <a
-        href={href}
+    <Link
+        to={href}
         className="text-sm text-white/60 hover:text-white transition-colors duration-200 w-fit relative group"
     >
         {children}
-    </a>
+    </Link>
 );
 
 export default Footer;
