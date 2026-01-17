@@ -8,7 +8,6 @@ const ContactPage = () => {
     return (
         <main className="bg-black min-h-screen">
             <MetaManager
-                title="Contact"
                 description="Re-establish link with PixelWings. Initiate project transmissions or technical inquiries."
             />
             <Header />

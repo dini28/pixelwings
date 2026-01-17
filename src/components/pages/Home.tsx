@@ -13,7 +13,6 @@ const Home: React.FC = () => {
     return (
         <>
             <MetaManager
-                title="Home"
                 description="Engineering high-performance MERN stack applications integrated with custom AI/ML models."
             />
             <Header />

@@ -10,7 +10,6 @@ const About = () => {
     return (
         <main className="bg-black min-h-screen">
             <MetaManager
-                title="About Us"
                 description="Learn about PixelWings - a tech solutions firm specializing in enterprise-grade web applications and intelligent systems."
             />
             <Header />

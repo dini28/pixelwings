@@ -9,7 +9,6 @@ const Services = () => {
     return (
         <main className="bg-black min-h-screen">
             <MetaManager
-                title="Our Services"
                 description="Explore our full-stack engineering, mobile solutions, and data-driven interface systems."
             />
             <Header />
